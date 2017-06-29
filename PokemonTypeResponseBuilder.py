@@ -1,6 +1,6 @@
 from Gen1PokemonTrainer import buildQuestion
 
-class PokemonTypeResponseBuilder():
+class PokemonTypeResponseBuilder:
 
     @classmethod
     def buildResponse(cls, cursor, pokemon):

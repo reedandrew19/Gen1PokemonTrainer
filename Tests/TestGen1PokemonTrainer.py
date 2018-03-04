@@ -79,20 +79,21 @@ class TestGen1PokemonTrainer(TestCase):
         self.assertEquals(getPokemonEvolution("Bulbasaur")._response,
                           buildQuestion("Bulbasaur evolves into Ivysaur. ")._response)
 
-    def testGetPokemonEvolutionMultiple(self):
+    def testGetPokemonEvolutionEevee(self):
+        self.maxDiff = None
         self.assertEquals(getPokemonEvolution("Eevee")._response,
-                          buildQuestion("Eevee doesn't evolve into Jolteon,"
-                                        " Flareon, and Vaporeon. ")._response)
+                          buildQuestion("Eevee evolves into Flareon,"
+                                        " Jolteon, and Vaporeon. ")._response)
 
     def testGetPokemonEvolutionNull(self):
         self.assertEquals(getPokemonEvolution("Venusaur")._response,
-                          buildQuestion("Venusaur either isn't a gen 1 Pokemon or"
-                                        " doesn't have an evolution in gen 1. ")._response)
+                          buildQuestion("Venusaur doesn't have an evolution "
+                                        "in gen 1. ")._response)
 
     def testGetPokemonEvolutionFail(self):
         self.assertEquals(getPokemonEvolution("evolve")._response,
-                          buildQuestion("evolve either isn't a gen 1 Pokemon or "
-                                        "doesn't have an evolution in gen 1. ")._response)
+                          buildQuestion("evolve isn't a"
+                                        " gen 1 Pokemon. ")._response)
 
     def testGetPokemonBaseHPPass(self):
         self.assertEquals(getPokemonBaseHP("venusaur")._response,
